@@ -165,17 +165,6 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to="/sitemap"
-              className={`flex items-center px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
-                isActive("/sitemap")
-                  ? "text-blue-600 border-b-2 border-blue-600"
-                  : "text-gray-900 font-bold hover:text-blue-600"
-              }`}
-            >
-              Sitemap
-            </Link>
-
-            <Link
               to="/contact"
               className={`flex items-center px-3 py-2 text-sm font-semibold rounded-md transition-colors ${
                 isActive("/contact")
@@ -349,18 +338,6 @@ const Navbar = () => {
               }`}
             >
               Blog & Insights
-            </Link>
-
-            <Link
-              to="/sitemap"
-              onClick={() => setIsOpen(false)}
-              className={`block px-3 py-3 rounded-md text-base font-semibold ${
-                isActive("/sitemap")
-                  ? "text-blue-600 bg-blue-50"
-                  : "text-gray-900 font-bold hover:text-blue-600 hover:bg-gray-50"
-              }`}
-            >
-              Sitemap
             </Link>
 
             <Link
