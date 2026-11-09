@@ -114,7 +114,7 @@ export default function QuoteModal() {
 
     const handleScroll = () => {
       if (!hasTriggeredScroll && window.scrollY > 300) {
-        if (localStorage.getItem("quoteSubmitted") !== "true") {
+        if (sessionStorage.getItem("quoteSubmitted") !== "true") {
           setIsOpen(true);
           hasTriggeredScroll = true;
           window.removeEventListener("scroll", handleScroll);
@@ -122,26 +122,26 @@ export default function QuoteModal() {
       }
     };
 
-    if (localStorage.getItem("quoteSubmitted") !== "true") {
+    if (sessionStorage.getItem("quoteSubmitted") !== "true") {
       window.addEventListener("scroll", handleScroll);
 
-      // Trigger 1: Show at 5 seconds
+      // Trigger 1: Show at 1 second
       timer1 = setTimeout(() => {
-        if (localStorage.getItem("quoteSubmitted") !== "true") {
+        if (sessionStorage.getItem("quoteSubmitted") !== "true") {
           setIsOpen(true);
         }
-      }, 5 * 1000);
+      }, 1 * 1000);
 
       // Trigger 2: Show at 2 minutes (120 seconds)
       timer2 = setTimeout(() => {
-        if (localStorage.getItem("quoteSubmitted") !== "true") {
+        if (sessionStorage.getItem("quoteSubmitted") !== "true") {
           setIsOpen(true);
         }
       }, 120 * 1000);
 
       // Trigger 3: Show at 5 minutes (300 seconds)
       timer3 = setTimeout(() => {
-        if (localStorage.getItem("quoteSubmitted") !== "true") {
+        if (sessionStorage.getItem("quoteSubmitted") !== "true") {
           setIsOpen(true);
         }
       }, 300 * 1000);
@@ -213,7 +213,7 @@ export default function QuoteModal() {
 
     try {
       await submitQuoteMutation.mutateAsync(payload);
-      localStorage.setItem("quoteSubmitted", "true");
+      sessionStorage.setItem("quoteSubmitted", "true");
       setIsSuccess(true);
       setFormData({
         name: "",
